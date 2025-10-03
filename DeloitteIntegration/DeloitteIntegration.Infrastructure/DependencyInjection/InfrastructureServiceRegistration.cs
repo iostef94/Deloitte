@@ -19,14 +19,14 @@ namespace DeloitteIntegration.Infrastructure.DependencyInjection
 
             services.AddHttpClient<ICountryService, CountryService>();
 
-            services.AddHttpClient<IWeatherService, WeatherService>()
-                .AddTypedClient((httpClient, sp) =>
+            // ✅ Correct registration of WeatherService implementing IWeatherService
+            services.AddHttpClient<WeatherService>()
+                .AddTypedClient<IWeatherService>((httpClient, sp) =>
                 {
                     var configuration = sp.GetRequiredService<IConfiguration>();
                     var apiKey = configuration["OpenWeatherMap:ApiKey"];
                     return new WeatherService(httpClient, apiKey);
                 });
-
 
             return services;
         }
