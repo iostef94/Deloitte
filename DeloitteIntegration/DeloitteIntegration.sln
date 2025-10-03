@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2 d17.14
+VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeloitteIntegration.API", "DeloitteIntegration\DeloitteIntegration.API.csproj", "{953557EF-EEEB-45D4-8F57-7E4C5624F787}"
 EndProject
@@ -12,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeloitteIntegration.Infrastructure", "DeloitteIntegration.Infrastructure\DeloitteIntegration.Infrastructure.csproj", "{086EABD0-AFD7-49B5-914E-23254F587B32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeloitteIntegration.UnitTests", "DeloitteIntegration.UnitTests\DeloitteIntegration.UnitTests.csproj", "{48394B13-E45B-42D1-996E-B7CA99A32750}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeloitteIntegration.IntegrationTests", "DeloitteIntegration.IntegrationTests\DeloitteIntegration.IntegrationTests.csproj", "{0A77855A-4511-4F2F-9C52-DF9FD8454FAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +39,6 @@ Global
 		{48394B13-E45B-42D1-996E-B7CA99A32750}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48394B13-E45B-42D1-996E-B7CA99A32750}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48394B13-E45B-42D1-996E-B7CA99A32750}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A77855A-4511-4F2F-9C52-DF9FD8454FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A77855A-4511-4F2F-9C52-DF9FD8454FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A77855A-4511-4F2F-9C52-DF9FD8454FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A77855A-4511-4F2F-9C52-DF9FD8454FAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
