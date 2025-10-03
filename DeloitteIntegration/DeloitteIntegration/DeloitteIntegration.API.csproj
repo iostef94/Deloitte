@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DeloitteIntegration.Application\DeloitteIntegration.Application.csproj" />
+    <ProjectReference Include="..\DeloitteIntegration.Infrastructure\DeloitteIntegration.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
