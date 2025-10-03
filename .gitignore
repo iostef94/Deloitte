@@ -1,0 +1,13 @@
+/DeloitteIntegration/.vs
+/DeloitteIntegration/DeloitteIntegration.Domain/obj
+/DeloitteIntegration/DeloitteIntegration.Infrastructure/obj
+/DeloitteIntegration/DeloitteIntegration.IntegrationTests/bin
+/DeloitteIntegration/DeloitteIntegration.UnitTests/obj
+/DeloitteIntegration/DeloitteIntegration/bin
+/DeloitteIntegration/DeloitteIntegration/obj
+/DeloitteIntegration/DeloitteIntegration.IntegrationTests/obj
+/DeloitteIntegration/DeloitteIntegration.Application/bin
+/DeloitteIntegration/DeloitteIntegration.Application/obj
+/DeloitteIntegration/DeloitteIntegration.Domain/bin
+/DeloitteIntegration/DeloitteIntegration.Infrastructure/bin
+/DeloitteIntegration/DeloitteIntegration.UnitTests/bin
