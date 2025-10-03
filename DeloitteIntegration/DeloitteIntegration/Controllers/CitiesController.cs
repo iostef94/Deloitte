@@ -1,5 +1,6 @@
 ﻿using DeloitteIntegration.Application.DTOs;
 using DeloitteIntegration.Application.Interfaces;
+using DeloitteIntegration.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeloitteIntegration.API.Controllers
@@ -19,23 +20,35 @@ namespace DeloitteIntegration.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCity([FromBody] CityCreateDto dto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            var city = new City
+            {
+                Name = dto.Name,
+                State = dto.State,
+                Country = dto.Country,
+                EstimatedPopulation = dto.EstimatedPopulation,
+                TouristRating = dto.TouristRating,
+                DateEstablished = dto.DateEstablished
+            };
 
-            var result = await _cityService.AddCityAsync(dto);
-            return CreatedAtAction(nameof(SearchCity), new { name = dto.Name }, result);
+            await _cityService.AddCityAsync(city);
+            return Ok(city);
         }
 
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCity(int id, [FromBody] CityUpdateDto dto)
         {
-            if (id != dto.Id)
-                return BadRequest("City ID mismatch.");
+            var city = new City
+            {
+                EstimatedPopulation = dto.EstimatedPopulation,
+                TouristRating = dto.TouristRating,
+                DateEstablished = dto.DateEstablished
+            };
 
-            await _cityService.UpdateCityAsync(dto);
-            return NoContent();
+            await _cityService.UpdateCityAsync(city);
+            return Ok(city);
         }
+
 
 
         [HttpDelete("{id}")]

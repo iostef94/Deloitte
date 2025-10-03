@@ -21,19 +21,23 @@ namespace DeloitteIntegration.Infrastructure.Services
 
             try
             {
-                var data = await _httpClient.GetFromJsonAsync<dynamic>(url);
+                var data = await _httpClient.GetFromJsonAsync<WeatherApiResponse>(url);
                 if (data == null) return null;
 
                 return new WeatherInfo
                 {
-                    Temperature = (double)data.main.temp,
-                    Description = data.weather[0].description
+                    Temperature = data.Main.Temp,
+                    Description = data.Weather.FirstOrDefault()?.Description ?? "Unknown"
                 };
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine($"Error fetching weather for {cityName}: {ex.Message}");
                 return null;
             }
         }
+
+
+
     }
 }

@@ -4,10 +4,12 @@ namespace DeloitteIntegration.Domain.Interfaces
 {
     public interface ICityRepository
     {
+        Task<IEnumerable<City>> GetAllAsync();
         Task<City?> GetByIdAsync(int id);
-        Task<IEnumerable<City>> SearchByNameAsync(string name);
-        Task<City> AddAsync(City city);
+        Task AddAsync(City city);
         Task UpdateAsync(City city);
         Task DeleteAsync(int id);
+        Task<IEnumerable<City>> SearchAsync(string name);
+
     }
 }

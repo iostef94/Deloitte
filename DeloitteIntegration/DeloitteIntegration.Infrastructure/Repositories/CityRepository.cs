@@ -14,11 +14,26 @@ namespace DeloitteIntegration.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<City> AddAsync(City city)
+        public async Task<IEnumerable<City>> GetAllAsync()
+        {
+            return await _context.Cities.ToListAsync();
+        }
+
+        public async Task<City?> GetByIdAsync(int id)
+        {
+            return await _context.Cities.FindAsync(id);
+        }
+
+        public async Task AddAsync(City city)
         {
             _context.Cities.Add(city);
             await _context.SaveChangesAsync();
-            return city;
+        }
+
+        public async Task UpdateAsync(City city)
+        {
+            _context.Cities.Update(city);
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
@@ -31,22 +46,13 @@ namespace DeloitteIntegration.Infrastructure.Repositories
             }
         }
 
-        public async Task<City?> GetByIdAsync(int id)
-        {
-            return await _context.Cities.FirstOrDefaultAsync(c => c.Id == id);
-        }
-
-        public async Task<IEnumerable<City>> SearchByNameAsync(string name)
+        public async Task<IEnumerable<City>> SearchAsync(string name)
         {
             return await _context.Cities
-                .Where(c => c.Name.ToLower().Contains(name.ToLower()))
+                .Where(c => c.Name.Contains(name))
                 .ToListAsync();
         }
 
-        public async Task UpdateAsync(City city)
-        {
-            _context.Cities.Update(city);
-            await _context.SaveChangesAsync();
-        }
+
     }
 }
