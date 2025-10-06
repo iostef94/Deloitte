@@ -10,7 +10,6 @@
         public DateTime DateEstablished { get; set; }
         public int EstimatedPopulation { get; set; }
 
-        // From external APIs
         public string CountryCode2 { get; set; } = string.Empty;
         public string CountryCode3 { get; set; } = string.Empty;
         public string CurrencyCode { get; set; } = string.Empty;

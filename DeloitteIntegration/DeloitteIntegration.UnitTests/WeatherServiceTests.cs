@@ -16,7 +16,6 @@ namespace DeloitteIntegration.UnitTests
         [Fact]
         public async Task GetWeatherAsync_ShouldReturnWeatherInfo_WhenApiResponseIsValid()
         {
-            // Arrange
             var jsonResponse = @"{
                 ""main"": { ""temp"": 20.5 },
                 ""weather"": [ { ""description"": ""clear sky"" } ]
@@ -36,10 +35,8 @@ namespace DeloitteIntegration.UnitTests
             var httpClient = new HttpClient(handlerMock.Object);
             var service = new WeatherService(httpClient, "fake_api_key");
 
-            // Act
             var result = await service.GetWeatherAsync("Bucharest");
 
-            // Assert
             result.Should().NotBeNull();
             result.Temperature.Should().Be(20.5);
             result.Description.Should().Be("clear sky");
@@ -48,7 +45,6 @@ namespace DeloitteIntegration.UnitTests
         [Fact]
         public async Task GetWeatherAsync_ShouldReturnNull_OnHttpError()
         {
-            // Arrange
             var handlerMock = new Mock<HttpMessageHandler>();
             handlerMock.Protected()
                 .Setup<Task<HttpResponseMessage>>("SendAsync",
@@ -59,10 +55,8 @@ namespace DeloitteIntegration.UnitTests
             var httpClient = new HttpClient(handlerMock.Object);
             var service = new WeatherService(httpClient, "fake_api_key");
 
-            // Act
             var result = await service.GetWeatherAsync("InvalidCity");
 
-            // Assert
             result.Should().BeNull();
         }
     }

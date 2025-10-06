@@ -21,7 +21,6 @@ namespace DeloitteIntegration.UnitTests
         [Fact]
         public async Task GetAllCitiesAsync_ShouldReturnListOfCities()
         {
-            // Arrange
             var cities = new List<City>
             {
                 new City { Id = 1, Name = "Bucharest", Country = "Romania" },
@@ -29,10 +28,8 @@ namespace DeloitteIntegration.UnitTests
             };
             _mockRepo.Setup(r => r.GetAllAsync()).ReturnsAsync(cities);
 
-            // Act
             var result = await _service.GetAllCitiesAsync();
 
-            // Assert
             result.Should().HaveCount(2);
             result.First().Name.Should().Be("Bucharest");
         }
@@ -40,13 +37,10 @@ namespace DeloitteIntegration.UnitTests
         [Fact]
         public async Task AddCityAsync_ShouldCallRepositoryAdd()
         {
-            // Arrange
             var city = new City { Name = "Berlin", Country = "Germany" };
 
-            // Act
             await _service.AddCityAsync(city);
 
-            // Assert
             _mockRepo.Verify(r => r.AddAsync(city), Times.Once);
         }
     }

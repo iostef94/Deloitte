@@ -20,7 +20,6 @@ namespace DeloitteIntegration.Infrastructure.DependencyInjection
             services.AddHttpClient<ICountryService, CountryService>();
 
 
-            // ✅ Correct registration of WeatherService implementing IWeatherService
             services.AddHttpClient<WeatherService>()
                 .AddTypedClient<IWeatherService>((httpClient, sp) =>
                 {

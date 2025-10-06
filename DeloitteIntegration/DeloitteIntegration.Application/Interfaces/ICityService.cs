@@ -9,6 +9,6 @@ namespace DeloitteIntegration.Application.Interfaces
         Task AddCityAsync(City city);
         Task UpdateCityAsync(City city);
         Task DeleteCityAsync(int id);
-        Task<IEnumerable<City>> SearchCityAsync(string name); // ✅ nou
+        Task<IEnumerable<City>> SearchCityAsync(string name); 
     }
 }
